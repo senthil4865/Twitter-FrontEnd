@@ -1,0 +1,70 @@
+.friend-sidenav {
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+.box {
+  box-shadow: 0 4px 8px 0 #48cdc8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.paginator-align {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.overflow-list {
+  max-height: 50vh;
+  overflow: auto;
+}
+
+
+.spinner{
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tweet-font{
+  font-family: OpenSans;
+  font-size: 14px;
+  font-weight: 600;
+  max-height:36px;
+  max-width:636px;
+  white-space: nowrap; 
+  overflow:hidden;
+  text-overflow: ellipsis;
+  margin-top: 3px;
+}
+
+.tweet-card{
+  padding:0px;
+  width:70%;
+  height:90px;
+  box-shadow: 1px 1px 5px 4px #d0021b;
+  margin: 20px;
+}
+
+.max-chips-overflow{
+  max-height: 60px;
+  white-space: nowrap; 
+  overflow:hidden;
+  text-overflow: ellipsis;
+
+}
+
+.chips-mt-4{
+  margin-top: 2%;
+}
+

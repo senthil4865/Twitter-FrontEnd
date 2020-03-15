@@ -1,0 +1,55 @@
+<navbar></navbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <mat-card>Add a Tweet</mat-card>
+  </mat-sidenav>
+
+  <mat-sidenav-content style="background-image: linear-gradient(to bottom right, #f381da, #f5e4d1);height: 100vh;">
+    <div *ngIf="progressSpinner" class="spinner">
+      <div class="spinner-grow text-primary" style="width: 5rem; height: 5rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div style="margin-top: 8vh;" class="row">
+        <input type="text" [(ngModel)]="tweetWithTags" name="" id="" class="form-control col col-sm-8" #todo />
+        <input type="button" (click)="postTweet(todo.value)" value="Post Tweet"
+          class="btn btn-primary col col-sm-3 offset-1" />
+      </div>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search Tweet</mat-label>
+          <input matInput id="tweetSearchTag" name="searchTerm" [(ngModel)]="searchTerm" placeholder="Search Tweet"
+            value="Sushi">
+        </mat-form-field>
+      </form>
+    </div>
+
+    <div id="todo-container" style="overflow-y:auto;" class="container mt-5">
+      <div class="row ">
+        <div class="col-md-12">
+
+          <mat-card *ngFor="let tweet of tweetList  | filter:searchTerm " class="tweet-card">
+            <div class="tweet-font">{{tweet.tweetDescription}}</div>
+            <div>--By {{tweet.tweetCreatorName}} </div>
+            <div class="chips-mt-4">
+              <mat-chip-list class="max-chips-overflow" aria-label="Fish selection">
+                <ng-container *ngFor="let tags of tweet.tweetHashTags">
+                  <mat-chip color="primary" selected>{{tags}}</mat-chip>
+                </ng-container>
+              </mat-chip-list>
+            </div>
+
+          </mat-card>
+
+        </div>
+      </div>
+    </div>
+    <div class="paginator-align">
+      <!-- <mat-paginator class="mat-elevation-z5 col-md-12" [length]="totalTweets" [pageSize]="pageSize"
+        [pageSizeOptions]="[5, 10, 25, 100]" [pageIndex]="pageIndex" (page)="pageEvent = getServerData($event)">
+      </mat-paginator> -->
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

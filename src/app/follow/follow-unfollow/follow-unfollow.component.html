@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-list role="list">
+    <mat-list-item *ngIf="userFollower?.length == 0" role="listitem">No Followers yet</mat-list-item>
+    <mat-list-item *ngFor="let follower of userFollowing" role="listitem">{{ follower.followerName }} &nbsp;
+      <button mat-raised-button class="btn btn-success">
+        <i class="fa fa-check" aria-hidden="true"></i> Followers
+      </button>
+      &nbsp;
+      <button (click)="unFollow(follower)" mat-raised-button color="accent">
+        UnFollow
+      </button></mat-list-item>
+    <hr />
+
+    <mat-list-item *ngIf="userList?.length != 0" role="listitem">Follow users</mat-list-item>
+    <input type="text" id="inputUserName" name="usrName" [(ngModel)]="usrName" class="form-control"
+      placeholder="Search For User Name">
+
+    <mat-list-item *ngFor="let user of userList  | filter:usrName " role="listitem">
+      <ng-container *ngIf="!user?.isFollower">
+        {{ user.firstName }} &nbsp;
+        <button (click)="followRequest(user)" mat-raised-button color="accent">
+          Follow
+        </button>
+      </ng-container>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
