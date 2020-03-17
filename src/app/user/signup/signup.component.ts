@@ -112,7 +112,7 @@ export class SignUpComponent implements OnInit {
           if (apiResponse.status == 200) {
             this.toastr.success(
               "Please check your email",
-              "Registered with Todo"
+              "Registered with Twitter"
             );
             setTimeout(() => {
               this.goToSignIn();
